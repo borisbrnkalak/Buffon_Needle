@@ -8,8 +8,8 @@ namespace Buffon_Needle
     public partial class Form1 : Form
     {
         private ObservableCollection<double> ObservableCollection { get; set; } = new();
-
         public List<ISeries> LineSeries { get; set; } = new();
+        public bool StopSimulation { get; set; } = false;
 
         public Form1()
         {
@@ -41,7 +41,7 @@ namespace Buffon_Needle
             chart.Series = LineSeries;
         }
 
-        private void startSimulation_Click(object sender, EventArgs e)
+        private async void startSimulation_Click(object sender, EventArgs e)
         {
             ObservableCollection.Clear();
             int succeed = 0;
@@ -52,8 +52,9 @@ namespace Buffon_Needle
 
             double L = Int32.Parse(inputLength.Text);
             double D = Int32.Parse(inputGap.Text);
+            int i = 0;
 
-            for (int i = 0; i < count; i++)
+            while (i < count && !StopSimulation)
             {
                 double a = random.NextDouble() * D;
                 double alfa = random.NextDouble() * Math.PI;
@@ -65,15 +66,30 @@ namespace Buffon_Needle
                     succeed++;
                 }
 
+                pi = (double)(2 * L * i) / (D * Math.Max(succeed, 1));
+
                 if (i % 1000 == 0)
                 {
-                    pi = (double)(2 * L * i) / (D * Math.Max(succeed, 1));
+                    
                     ObservableCollection.Add(pi);
+                    piValue.Text = pi.ToString();
+                    await Task.Delay(100);
                 }
+                i++;
             }
-            pi = (double)(2 * L * count) / (D * succeed);
-            piValue.Text = pi.ToString();
 
+            if (!StopSimulation) 
+            {
+                pi = (double)(2 * L * count) / (D * succeed);
+            }
+            
+            piValue.Text = pi.ToString();
+            StopSimulation = false;
+        }
+
+        private void stopSimulation_Click(object sender, EventArgs e)
+        {
+            StopSimulation = true;
         }
     }
 }

@@ -38,13 +38,15 @@
             inputCount = new TextBox();
             label4 = new Label();
             piValue = new Label();
+            stopSimulation = new Button();
             SuspendLayout();
             // 
             // startSimulation
             // 
-            startSimulation.Location = new Point(1113, 15);
+            startSimulation.Location = new Point(1590, 25);
+            startSimulation.Margin = new Padding(4, 5, 4, 5);
             startSimulation.Name = "startSimulation";
-            startSimulation.Size = new Size(116, 36);
+            startSimulation.Size = new Size(166, 60);
             startSimulation.TabIndex = 0;
             startSimulation.Text = "Start";
             startSimulation.UseVisualStyleBackColor = true;
@@ -52,66 +54,74 @@
             // 
             // chart
             // 
-            chart.Location = new Point(23, 127);
+            chart.Location = new Point(33, 212);
+            chart.Margin = new Padding(4, 5, 4, 5);
             chart.Name = "chart";
-            chart.Size = new Size(1216, 387);
+            chart.Size = new Size(1737, 645);
             chart.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(23, 26);
+            label1.Location = new Point(33, 43);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(98, 15);
+            label1.Size = new Size(148, 25);
             label1.TabIndex = 2;
             label1.Text = "Lengtf on Needle";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(23, 62);
+            label2.Location = new Point(33, 103);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(106, 15);
+            label2.Size = new Size(159, 25);
             label2.TabIndex = 3;
             label2.Text = "Gap Between Lines";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(23, 101);
+            label3.Location = new Point(33, 168);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(119, 15);
+            label3.Size = new Size(181, 25);
             label3.TabIndex = 4;
             label3.Text = "Number Of Attempts";
             // 
             // inputLength
             // 
-            inputLength.Location = new Point(156, 23);
+            inputLength.Location = new Point(223, 38);
+            inputLength.Margin = new Padding(4, 5, 4, 5);
             inputLength.Name = "inputLength";
-            inputLength.Size = new Size(100, 23);
+            inputLength.Size = new Size(141, 31);
             inputLength.TabIndex = 5;
             // 
             // inputGap
             // 
-            inputGap.Location = new Point(156, 59);
+            inputGap.Location = new Point(223, 98);
+            inputGap.Margin = new Padding(4, 5, 4, 5);
             inputGap.Name = "inputGap";
-            inputGap.Size = new Size(100, 23);
+            inputGap.Size = new Size(141, 31);
             inputGap.TabIndex = 6;
             // 
             // inputCount
             // 
-            inputCount.Location = new Point(156, 98);
+            inputCount.Location = new Point(223, 163);
+            inputCount.Margin = new Padding(4, 5, 4, 5);
             inputCount.Name = "inputCount";
-            inputCount.Size = new Size(100, 23);
+            inputCount.Size = new Size(141, 31);
             inputCount.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(472, 62);
+            label4.Location = new Point(674, 103);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(55, 46);
+            label4.Size = new Size(81, 67);
             label4.TabIndex = 8;
             label4.Text = "PI:";
             // 
@@ -119,17 +129,30 @@
             // 
             piValue.AutoSize = true;
             piValue.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
-            piValue.Location = new Point(533, 62);
+            piValue.Location = new Point(761, 103);
+            piValue.Margin = new Padding(4, 0, 4, 0);
             piValue.Name = "piValue";
-            piValue.Size = new Size(50, 46);
+            piValue.Size = new Size(73, 67);
             piValue.TabIndex = 9;
             piValue.Text = "??";
             // 
+            // stopSimulation
+            // 
+            stopSimulation.Location = new Point(1590, 98);
+            stopSimulation.Margin = new Padding(4, 5, 4, 5);
+            stopSimulation.Name = "stopSimulation";
+            stopSimulation.Size = new Size(166, 60);
+            stopSimulation.TabIndex = 10;
+            stopSimulation.Text = "Stop";
+            stopSimulation.UseVisualStyleBackColor = true;
+            stopSimulation.Click += stopSimulation_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1251, 523);
+            ClientSize = new Size(1787, 872);
+            Controls.Add(stopSimulation);
             Controls.Add(piValue);
             Controls.Add(label4);
             Controls.Add(inputCount);
@@ -140,6 +163,7 @@
             Controls.Add(label1);
             Controls.Add(chart);
             Controls.Add(startSimulation);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -158,5 +182,6 @@
         private TextBox inputCount;
         private Label label4;
         private Label piValue;
+        private Button stopSimulation;
     }
 }
